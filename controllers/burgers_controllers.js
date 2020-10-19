@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const burger = require("../models/burger.js");
+const path = require("path");
 
 router.get("/", function(req, res) {
     burger.all(function(data) {
@@ -35,6 +36,18 @@ router.put("/api/burgers/:id", function(req, res) {
             res.status(200).end();
         }
     });
+});
+
+router.get("/assets/css/style.css", (req, res)=> {
+    res.sendFile(path.join(__dirname, "../public/assets/css/style.css"))
+});
+
+router.get("/assets/js/index.js", (req, res)=> {
+    res.sendFile(path.join(__dirname, "../public/assets/js/index.js"))
+});
+
+router.get("/assets/img/burger.png", (req, res)=> {
+    res.sendFile(path.join(__dirname, "../public/assets/img/burger.png"))
 });
 
 module.exports = router;
