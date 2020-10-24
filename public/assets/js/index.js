@@ -5,7 +5,7 @@ $(function() {
         const newDevoured = {
             devoured: newDevour
         };
-
+        console.log(newDevoured)
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newDevoured
@@ -20,8 +20,8 @@ $(function() {
         event.preventDefault();
 
         let newBurger = {
-            burger_name: $("#burger_name").val().trim(),
-            devoured: $("[name=devoured]:checked").val().trim()
+            burger_name: $("#burger_name").val(),
+            devoured: $("[name=devoured]:checked").val()
         };
 
         $.ajax("/api/burgers", {
